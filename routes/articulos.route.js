@@ -1,11 +1,11 @@
 const express = require("express");
-const articulosModel = require("../models/articulos");
+const articulosModel = require("../models/articulos.model");
 const router = express.Router()
 
 // Get all articulos
 router.get("/posts", async (req, res) => {
   const articulos = await articulosModel.find()
-console.log('awskjbaweb')
+
   res.send(articulos)
 })
 router.post("/posts", async (req, res) => {
