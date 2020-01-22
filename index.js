@@ -12,9 +12,9 @@ mongoose
 
 function iniciarAPI() {
   const app = express();
-
-  iniciarRutas(app);
   app.use(bodyParser.json());
+  iniciarRutas(app);
+  
   app.listen(5000, () => {
     console.log("Server has started!")
   })
