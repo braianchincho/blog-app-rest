@@ -19,6 +19,10 @@ router.get('/posts/:id', async (req, res) => {
 router.post('/posts', async (req, res) => {
     const post = await controller.saveArticulo(req.body);
     res.send(post);
-  })
+});
 
+router.put('/posts/:id', async (req, res) => {
+  const post = await controller.updateArticulo(req.params.id, req.body);
+  res.send(post);
+});
 module.exports = router;
