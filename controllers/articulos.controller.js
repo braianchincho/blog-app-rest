@@ -20,6 +20,12 @@ class ArticulosController {
       
         return post.save();   
     }
+
+    async updateArticulo(id,articuloBody) {
+        const { titulo, contenidoArticulo } = articuloBody;
+        const articuloUpdate = { titulo, contenidoArticulo } ;
+        return articulosModel.findByIdAndUpdate(id , {$set: articuloUpdate });
+    }
 }
 module.exports = ArticulosController;
 
