@@ -9,7 +9,7 @@ router.get('/posts', async (req, res, next) => {
     const articulos = await controller.getArticulos();
     res.send(articulos)
   } catch(err) {
-    next(new ErrorHandler(409, 'Articulo no encontrado'));
+    next(new ErrorHandler(409, err.message ,'Articulo no encontrado'));
   }
 
 });
@@ -19,7 +19,8 @@ router.get('/posts/:id', async (req, res, next) => {
     const articulo = await controller.getArticuloById(_id);
     res.send(articulo);
   } catch(err) {
-     next(new ErrorHandler(409, 'Error al consultar los articulos'));
+    console.log(err)
+     next(new ErrorHandler(409, err.message ,'Error al consultar los articulos'));
   }
 
 })
@@ -29,7 +30,7 @@ router.post('/posts', async (req, res, next) => {
       const post = await controller.saveArticulo(req.body);
       res.send(post);
     } catch(err) {
-      next(new ErrorHandler(409, 'Error al guardar el articulo'));
+      next(new ErrorHandler(409, err.message ,'Error al guardar el articulo'));
     }
 
 });
@@ -39,7 +40,7 @@ router.put('/posts/:id', async (req, res, next) => {
     const post = await controller.updateArticulo(req.params.id, req.body);
     res.send(post);
   } catch(err) {
-    next(new ErrorHandler(409, 'Error al modificar el articulo'));
+    next(new ErrorHandler(409, err.message ,'Error al modificar el articulo'));
   }
 
 });

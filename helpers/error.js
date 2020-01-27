@@ -1,8 +1,11 @@
+const logger  = require('./logger');
+
 class ErrorHandler extends Error {
-    constructor(statusCode, message) {
+    constructor(statusCode, message , messageUser) {
       super();
       this.statusCode = statusCode;
       this.message = message;
+      this.messageUser = messageUser;
     }
 }
 /**
@@ -11,12 +14,13 @@ class ErrorHandler extends Error {
  * @param {Response<any>} res 
  */
 const handleError = (err, res) => {
-    const { statusCode, message } = err;
+    const { statusCode, message, messageUser } = err;    
     res.status(statusCode).json({
       status: "error",
       statusCode,
-      message
+      messageUser
     });
+    logger.error(message);
   };
   
 
