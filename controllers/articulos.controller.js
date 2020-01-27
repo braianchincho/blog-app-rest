@@ -26,6 +26,12 @@ class ArticulosController {
         const articuloUpdate = { titulo, contenidoArticulo } ;
         return articulosModel.findByIdAndUpdate(id , {$set: articuloUpdate });
     }
+
+    async deleteArticulo(id) {
+        const articulo = await articulosModel.findById(id);
+        await articulosModel.deleteOne(articulo);
+        return articulo;
+    }
 }
 module.exports = ArticulosController;
 

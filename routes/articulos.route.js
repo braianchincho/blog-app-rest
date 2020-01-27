@@ -17,6 +17,9 @@ router.get('/posts/:id', async (req, res, next) => {
   const _id = req.params.id;
   try {
     const articulo = await controller.getArticuloById(_id);
+    if(!articulo) {
+      next(new ErrorHandler(404, err.message ,'El articulo no existe'));
+    }
     res.send(articulo);
   } catch(err) {
     console.log(err)
@@ -44,4 +47,15 @@ router.put('/posts/:id', async (req, res, next) => {
   }
 
 });
+
+router.delete('/posts/:id', async (req, res, next) => {
+  try {
+    const post = await controller.deleteArticulo(req.params.id);
+    res.send(post);
+  } catch(err) {
+    next(new ErrorHandler(409, err.message ,'Error al eliminar el articulo'));
+  }
+
+});
+
 module.exports = router;
