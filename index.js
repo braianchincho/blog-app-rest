@@ -5,18 +5,19 @@ const bodyParser = require('body-parser');
 const { handleError, } = require('./helpers/error');
 const httpLogger = require('./helpers/httpLogger');
 const { userDB, passwordDB } = require('./settings.json');
-
+const PORT = process.env.PORT || 5000
 const url =`mongodb+srv://${userDB}:${passwordDB}@cluster0-ms4r4.azure.mongodb.net/test?retryWrites=true&w=majority`;
 const app = express();
+const logger  = require('./helpers/logger');
 
 app.use(express.json()); // Make sure it comes back as json
 
 mongoose.connect(url, { useNewUrlParser: true }, err => {
   if (!err) {
-    console.log('Conectado a la bd en la nube');
+    logger.info('Conectado a la bd en la nube');
     iniciarAPI(); 
   } else {
-    console.error('No se pudo conectar a la bd' + err)
+    logger.error('No se pudo conectar a la bd' + err)
   }
 })
 
@@ -28,8 +29,8 @@ function iniciarAPI() {
   app.use((err, req, res, next) => {
     handleError(err, res);
   });
-  app.listen(5000, () => {
-    console.log('Server has started! on 5000 port')
+  app.listen(PORT, () => {
+    logger.info(`Server has started! on ${PORT} port`);
   })
 }
 
