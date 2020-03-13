@@ -1,11 +1,13 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const iniciarRutas = require('./routes/index.routes');
-const bodyParser = require('body-parser');
+import express from 'express';
+import mongoose from'mongoose';
+import iniciarRutas from './routes/index.routes';
+import bodyParser from 'body-parser';
 const { handleError, } = require('./helpers/error');
 const httpLogger = require('./helpers/httpLogger');
-const userDB = process.env.userMongoDB;
-const passwordDB = process.env.passwordMongoDB;
+// const userDB = process.env.userMongoDB;
+// const passwordDB = process.env.passwordMongoDB;
+const userDB = 'admin';
+const passwordDB = 'peterpan.23';
 const PORT = process.env.PORT || 5000
 const url =`mongodb+srv://${userDB}:${passwordDB}@cluster0-ms4r4.azure.mongodb.net/test?retryWrites=true&w=majority`;
 const app = express();
