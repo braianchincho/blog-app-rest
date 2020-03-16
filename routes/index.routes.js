@@ -10,7 +10,7 @@ export default function iniciarRutas(app) {
     });
 
     // posts
-    app.use('/api',articulos);
+    app.use('/api/posts',articulos);
    
 }
 
