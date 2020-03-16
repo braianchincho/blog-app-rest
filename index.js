@@ -2,7 +2,7 @@ import express from 'express';
 import mongoose from'mongoose';
 import iniciarRutas from './routes/index.routes';
 import bodyParser from 'body-parser';
-const { handleError, } = require('./helpers/error');
+import { handleError } from './helpers/error';
 const httpLogger = require('./helpers/httpLogger');
 // const userDB = process.env.userMongoDB;
 // const passwordDB = process.env.passwordMongoDB;

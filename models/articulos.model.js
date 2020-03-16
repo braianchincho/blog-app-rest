@@ -8,4 +8,5 @@ const schema = mongoose.Schema({
   fechaPublicacion: {type: Date, default: null},
 })
 
-module.exports = mongoose.model("Articulos", schema)
+const articulosModel = mongoose.model("Articulos", schema);
+export default articulosModel;

@@ -1,9 +1,10 @@
 import express from 'express';
 import ArticulosController from '../controllers/articulos.controller';
-const { ErrorHandler } = require('../helpers/error');
-const router = express.Router()
+import { ErrorHandler } from '../helpers/error';
 
+const router = express.Router();
 const controller = new ArticulosController();
+
 // Get all articulos
 router.get('', async (req, res, next) => {
   try {

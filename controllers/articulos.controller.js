@@ -1,4 +1,4 @@
-const articulosModel = require('../models/articulos.model');
+import articulosModel from '../models/articulos.model';
 
 class ArticulosController {
     
