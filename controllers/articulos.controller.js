@@ -33,6 +33,6 @@ class ArticulosController {
         return articulo;
     }
 }
-module.exports = ArticulosController;
-
+// module.exports = ArticulosController;
+export default ArticulosController;
 

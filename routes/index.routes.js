@@ -1,5 +1,5 @@
 
-const articulos = require('./articulos.route');
+import articulosRouter from './articulos.route';
 
 export default function iniciarRutas(app) {
   
@@ -10,7 +10,7 @@ export default function iniciarRutas(app) {
     });
 
     // posts
-    app.use('/api/posts',articulos);
+    app.use('/api/posts',articulosRouter);
    
 }
 

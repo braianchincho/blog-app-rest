@@ -1,7 +1,8 @@
-const express = require('express');
-const router = express.Router()
-const ArticulosController = require('../controllers/articulos.controller');
+import express from 'express';
+import ArticulosController from '../controllers/articulos.controller';
 const { ErrorHandler } = require('../helpers/error');
+const router = express.Router()
+
 const controller = new ArticulosController();
 // Get all articulos
 router.get('', async (req, res, next) => {
@@ -58,4 +59,5 @@ router.delete('/:id', async (req, res, next) => {
 
 });
 
-module.exports = router;
+// module.exports = router;
+export default  router;
