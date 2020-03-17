@@ -3,6 +3,9 @@ import mongoose from'mongoose';
 import iniciarRutas from './routes/index.routes';
 import bodyParser from 'body-parser';
 import { handleError } from './helpers/error';
+import { logger } from './helpers/logger';
+
+
 const httpLogger = require('./helpers/httpLogger');
 // const userDB = process.env.userMongoDB;
 // const passwordDB = process.env.passwordMongoDB;
@@ -11,8 +14,8 @@ const passwordDB = 'peterpan.23';
 const PORT = process.env.PORT || 5000
 const url =`mongodb+srv://${userDB}:${passwordDB}@cluster0-ms4r4.azure.mongodb.net/test?retryWrites=true&w=majority`;
 const app = express();
-const logger  = require('./helpers/logger');
-console.log(process.env.userMongoDB)
+
+
 app.use(express.json()); // Make sure it comes back as json
 
 mongoose.connect(url, { useNewUrlParser: true }, err => {

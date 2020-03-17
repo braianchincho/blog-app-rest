@@ -1,5 +1,4 @@
 import articulosModel from '../models/articulos.model';
-
 class ArticulosController {
     
     async getArticulos() {

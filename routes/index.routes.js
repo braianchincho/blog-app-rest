@@ -5,7 +5,7 @@ export default function iniciarRutas(app) {
   
     if( ! (typeof app  === 'function') ) return;
   
-    app.get('/', function (req, res) {
+    app.get('/',  (req, res) =>{
       res.send('Hello World!');
     });
 
